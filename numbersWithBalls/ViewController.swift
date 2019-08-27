@@ -10,11 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var ball: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        update()
         // Do any additional setup after loading the view.
     }
+    func update(){
+        ball.image = UIImage(named: "ball\(Int.random(in: 1...5))")
+    }
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        update()
+    }
 
-
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        update()
+        
+    }
+    
 }
 
